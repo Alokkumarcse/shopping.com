@@ -1,0 +1,123 @@
+
+/**
+* ! Removing default style rules
+**/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family:sans-serif;
+  letter-spacing: 1px;
+  min-width: 300px;
+} 
+
+i{
+  cursor: pointer;
+}
+
+/**
+* ! navbar styling
+**/
+/* main container of navbar */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(32, 32, 32);
+  color:white;
+  padding: 25px 60px;
+  margin-bottom: 30px;
+}
+/* logo & name container */
+.logo__name {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap:10px;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+/* cart icon contianer */
+.cart {
+  position: relative;
+  background-color: white;
+  color:black;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.cart__count {
+  position: absolute;
+  top:-10px;
+  left:60%;
+  background-color: red;
+  color:white;
+  padding: 7px;
+  border-radius: 50%;
+  font-size: 15px;
+  text-align: center;
+}
+
+/**
+* ! style for product item container
+**/
+.shop {
+  display: grid;
+  grid-template-columns: repeat(4,223px);
+  gap:30px;
+  justify-content: center;
+}
+
+/* media queries for responsiveness */
+@media screen and (max-width: 1000px) {
+  .shop {
+    grid-template-columns: repeat(2,223px);
+  }
+}
+
+@media (max-width:520px){
+  .navbar {
+    padding: 10px;
+  }
+  .shop{
+    grid-template-columns: repeat(1,223px);
+  }
+}
+
+
+/**
+* ! style for item card
+**/
+.item {
+  border: 2px solid rgb(175, 172, 172);
+  border-radius: 4px;
+}
+
+/* item details */
+.details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+/* price & quantity button container */
+.price__quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 5px;
+}
