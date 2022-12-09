@@ -1,38 +1,6 @@
-let shop = document.getElementById('shop'),
-  cart__count = document.getElementById('cart__count');
+let shop = document.getElementById('shop');
  
 // create item store
-let dataStore = [
-  {
-    id:'gjkjpokjgasj',
-    title:"Laptop",
-    price:1200,
-    description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-    img:'./image/laptop-1.jpg',
-  },
-  {
-    id:'kjpokjgasj',
-    title:"Headphone",
-    price:200,
-    description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-    img:'./image/headphone-1.jpg',
-  },
-  {
-    id:'gjkjasj',
-    title:"Mobile",
-    price:800,
-    description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-    img:'./image/mobile-2.jpg',
-  },
-  {
-    id:'gjkjpokjgsj',
-    title:"Laptop",
-    price:1100,
-    description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-    img:'./image/laptop-2.jpg',
-  }
-
-];
 
 //keep tarck of all added data into our cart and get previous data from local storage
 let basket = JSON.parse(localStorage.getItem('basketData'))|| [];
@@ -127,7 +95,8 @@ let totalCount = () => {
       });
       count.innerHTML = value;
     */
-
+  
+  let cart__count = document.getElementById('cart__count');
   // using map() and reduce() to count
   cart__count.innerHTML = basket.map((ele) => ele.itemCount).reduce((curEle, prevEle) => { return curEle + prevEle},0);
 }
