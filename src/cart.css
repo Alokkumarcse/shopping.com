@@ -45,3 +45,33 @@
   color:white;
   border-radius: 10px;
 }
+
+/* total amount value, checkout and remmoveAll button style */
+.totalAmount {
+  margin: auto;
+  text-align: center;
+  width:300px;
+  background-color: rgb(235, 235, 54);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.checkout,
+.removeAll {
+  color:white;
+  border:none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.checkout{
+  background-color: green;
+}
+
+.removeAll{
+  background-color: rgb(202, 84, 84);
+}

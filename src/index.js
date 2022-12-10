@@ -10,7 +10,7 @@ let loadItem = () => {
  return ( shop.innerHTML = dataStore.map((ele) => {
     //destructring the ele object each time
     let {id, description, title, price, img} = ele;
-    let searchItem = basket.find((ele) => ele.id === id) || []
+    let searchItem = basket.find((ele) => ele.id === id) || [];
     return (
       `<div class="item" id=item__${id }>
         <img src=${img} alt="" width="100%" height="150px">

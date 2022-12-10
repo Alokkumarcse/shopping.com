@@ -19,14 +19,15 @@ let generateCartItems = () => {
     return cart__items.innerHTML = basket.map((item) => {
       let {id, itemCount} = item;
       let searchItemInDatastore = dataStore.find((ele) => ele.id === id)||[];
+      let {title, price, img} = searchItemInDatastore;
       return `
         <div class="cart-item">
-          <img width="150" src=${searchItemInDatastore.img} alt=""/>
+          <img width="150" src=${img} alt=""/>
           <div class="details">
             <div class="title__price__remove">
               <h4 class="title__price">
-                <p>${searchItemInDatastore.title}</p>
-                <p class="item__price">$${searchItemInDatastore.price}</p>
+                <p>${title}</p>
+                <p class="item__price">$${price}</p>
               </h4>
               <i onClick="removeItem(${id})" class="bi bi-x-circle"></i>
             </div>
@@ -35,7 +36,7 @@ let generateCartItems = () => {
               <div class="quantity" id=${id}> ${itemCount} </div>
               <i onClick="increase(${id})" class="bi bi-plus-circle"></i>
             </div>
-            <h3 class="total__price"> $${itemCount * searchItemInDatastore.price}</h3>
+            <h3 class="total__price"> $${itemCount * price}</h3>
           </div>
         </div>`
     })
@@ -46,7 +47,7 @@ let generateCartItems = () => {
     <a href="index.html">
       <button class="homeBtn">Back to store</button>
     </a>`;
-  }
+  } 
 }
 
 generateCartItems();
@@ -105,6 +106,7 @@ let updateItem = (selectedItem) => {
   document.getElementById(searchItem.id).innerHTML = searchItem.itemCount;
   //invoke the totalCount() on each updation
   totalCount();
+  totalAmount();
 }
 
 
@@ -114,6 +116,36 @@ let removeItem = (id) => {
   basket = basket.filter((ele) => ele.id !== selectedItem.id);
   totalCount();
   generateCartItems();
+  totalAmount();
   localStorage.setItem('basketData', JSON.stringify(basket));
-  basket.reduce()
 }
+
+// clear All cart item
+let clearCart = () => {
+  localStorage.clear();
+  basket = [];
+  totalCount(); 
+  generateCartItems();
+  localStorage.setItem('basketData', JSON.stringify(basket));
+}
+
+//total cart value 
+let totalAmount = () => {
+  //calculate total cart value
+  if(basket.length !== 0){
+    let amount = basket.map((item) => {
+      let {id, itemCount} = item;
+      let findItem = dataStore.find((ele) => ele.id === id)|| [];
+      return itemCount * findItem.price;
+    }).reduce((cur, prev) => {return cur+prev}, 0);
+    // show in the cart page
+    label.innerHTML = `
+    <h2 class="totalAmount"> Total Value: $${amount}</h2>
+    <button class="checkout">Checkout</button>
+    <button onClick="clearCart()" class="removeAll">Clear Cart</button>
+    `
+  }else{
+    return;
+  }
+}
+totalAmount();
