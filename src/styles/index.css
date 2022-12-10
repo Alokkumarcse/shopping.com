@@ -8,10 +8,15 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar{
+  display: none;
+}
+
 body{
   font-family:sans-serif;
   letter-spacing: 1px;
   min-width: 300px;
+  overflow: hidden;
 } 
 
 i{
@@ -76,10 +81,14 @@ a{
 * ! style for product item container
 **/
 .shop {
+  box-sizing: border-box;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(4,223px);
   gap:30px;
   justify-content: center;
+  overflow-y: scroll;
+  padding-bottom: 200px;
 }
 
 /* media queries for responsiveness */

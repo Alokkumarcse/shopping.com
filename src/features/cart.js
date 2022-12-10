@@ -21,8 +21,10 @@ let generateCartItems = () => {
       let searchItemInDatastore = dataStore.find((ele) => ele.id === id)||[];
       let {title, price, img} = searchItemInDatastore;
       return `
-        <div class="cart-item">
-          <img width="150" src=${img} alt=""/>
+        <div class="cart__items">
+          <div>
+            <img width="150" height="130" src=${img} alt=""/>
+          </div>
           <div class="details">
             <div class="title__price__remove">
               <h4 class="title__price">
@@ -39,7 +41,7 @@ let generateCartItems = () => {
             <h3 class="total__price"> $${itemCount * price}</h3>
           </div>
         </div>`
-    })
+    }).join("");
   }else{
     cart__items.innerHTML = ``;
     label.innerHTML = `
