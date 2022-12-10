@@ -1,0 +1,47 @@
+.text__center{
+  text-align: center;
+}
+
+.homeBtn{
+  padding: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.bi-x-circle {
+  color:red;
+}
+
+/*  style for item card */
+.cart__items {
+  display: grid;
+  grid-template-columns: repeat(1,350px);
+  justify-content: center;
+}
+
+.cart-item {
+  display: flex;
+  border: 2px solid rgb(245, 241, 241);
+  box-shadow: 0 0 4px;
+  border-radius: 5px;
+}
+
+.title__price__remove {
+  width:185px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title__price {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.item__price {
+  padding:5px;
+  background-color: rgb(70, 68, 68);
+  color:white;
+  border-radius: 10px;
+}

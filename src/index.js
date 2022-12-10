@@ -33,7 +33,7 @@ let loadItem = () => {
 // invoke loadItme method
 loadItem();
 
-// invoked when + button clicked
+// invoked when plus(+) button clicked
 let increase = (id) => {
   // collect the item id
   let selectedItem = id;
@@ -54,7 +54,7 @@ let increase = (id) => {
   localStorage.setItem('basketData', JSON.stringify(basket)); 
 }
 
-// invoked when - button clicked
+// invoked when minus(-) button clicked
 let decrease  = (id) => {
   let selectedItem = id;
   let searchItem = basket.find((item) => item.id === selectedItem.id);
@@ -113,3 +113,4 @@ totalCount();
 //   // show total item in cart
 //   cart__count.innerHTML = basket.map((ele) => ele.itemCount).reduce((curVal, prevVal) => {return curVal + prevVal}, 0);
 // })();
+
