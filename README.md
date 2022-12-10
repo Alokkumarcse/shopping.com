@@ -1,4 +1,5 @@
 # shopping.com
+### https://e-shopping-js.netlify.app/
 **shopping.com** is a e-commerce project using **plain javascript.**
 
 #### These features currently have in the app :) ####
